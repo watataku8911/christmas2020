@@ -1,7 +1,9 @@
 <template>
   <div class="header-top">
-    <source srcset="@/assets/santa.webp" type="image/webp" />
-    <img src="@/assets/santa.png" class="santa" />
+    <picture>
+      <source srcset="@/assets/santa.webp" type="image/webp" />
+      <img src="@/assets/santa.png" class="santa" v-show="load" />
+    </picture>
     <Navigation />
     <h1 class="header-top-title">
       Watataku's<br />
@@ -17,10 +19,47 @@ export default {
   components: {
     Navigation,
   },
+  data() {
+    return {
+      load: false,
+    };
+  },
+  mounted() {
+    window.onload = () => {
+      this.load = true;
+    };
+  },
 };
 </script>
 
 <style scoped>
+@keyframes animation-santa {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 400px;
+  }
+}
+
+@keyframes animation-santa-tb {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 35vw;
+  }
+}
+
+@keyframes animation-santa-sp {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 30vh;
+  }
+}
+
 /*PC*/
 @media screen and (min-width: 1026px) {
   .header-top {
@@ -37,6 +76,7 @@ export default {
     top: 0;
     left: 0;
     width: 400px;
+    animation: animation-santa 3s;
   }
 
   .header-top .header-top-title {
@@ -67,6 +107,7 @@ export default {
     top: 0;
     left: 0;
     width: 35vw;
+    animation: animation-santa-tb 3s;
   }
 
   .header-top .header-top-title {
@@ -95,7 +136,8 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    width: 20vh;
+    width: 30vh;
+    animation: animation-santa-sp 3s;
   }
 
   .header-top .header-top-title {

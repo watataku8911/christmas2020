@@ -1,7 +1,7 @@
 <template>
   <p>
     <a
-      href="http://www.facebook.com/share.php?u=http://watataku8911.github.io/christmas2020"
+      href="http://www.facebook.com/share.php?u=https://watataku8911.github.io/christmas2020"
       target="_blank"
       class="share-link"
     >
